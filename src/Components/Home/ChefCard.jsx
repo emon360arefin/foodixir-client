@@ -15,7 +15,6 @@ const ChefCard = (props) => {
                     <h2 className='text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-3xl font-semibold'>{name}</h2>
                     <div className='flex flex-col gap-2 mt-4 justify-between'>
                         <h2 className='text-xl font-semibold text-slate-600'> <BriefcaseIcon className='h-6 w-6 inline mb-1' /> Experience: {experience} years</h2>
-
                         <h2 className='text-xl font-semibold text-slate-600'> <ClipboardDocumentListIcon className='h-6 w-6 inline mb-1' /> Number of Recipes: {number_of_recipes} </h2>
 
                         <h2 className='text-xl font-semibold text-slate-600'> <HandThumbUpIcon className='h-6 w-6 inline mb-1' /> Likes: {likes} </h2>
@@ -25,15 +24,9 @@ const ChefCard = (props) => {
                                 View Recipes
                             </button>
                         </Link>
-
-
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     );
 };
