@@ -24,7 +24,7 @@ const Second = () => {
 
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-10 mt-10'>
                     {
-                        chefs.map(chef => <ChefCard chef={chef}></ChefCard>)
+                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : null
                     }
                 </div>
 

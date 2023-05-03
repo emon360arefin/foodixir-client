@@ -29,7 +29,7 @@ const Recipe = () => {
         <div>
             <div>
                 {
-                    chef && <RecipePage key={chef.id} chef={chef}></RecipePage>
+                    chef ? <RecipePage key={chef.id} chef={chef}></RecipePage> : null
                 }
             </div>
             <div className=' bg-[#FFFAFA] py-6 md:py-16 px-2'>
