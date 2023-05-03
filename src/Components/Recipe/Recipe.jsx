@@ -13,12 +13,12 @@ const Recipe = () => {
             .then(data => setChefs(data))
     }, [])
 
-    const recipe = chefs.filter(chef => chef.id === parseInt(id)  )
+    const chef = chefs.find(chef => chef.id === parseInt(id)  )
 
     return (
         <div>
             {
-                recipe && <RecipePage key={recipe.id} recipe={recipe}></RecipePage>
+                chef && <RecipePage key={chef.id} chef={chef}></RecipePage>
             }
         </div>
     );

@@ -20,9 +20,13 @@ const ChefCard = (props) => {
 
                         <h2 className='text-xl font-semibold text-slate-600'> <HandThumbUpIcon className='h-6 w-6 inline mb-1' /> Likes: {likes} </h2>
 
-                        <button className='py-2 md:px-8 px-4 mt-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>
-                            <Link to={`/recipe/${id}`}>View Recipes</Link>
-                        </button>
+                        <Link to={`/recipe/${id}`}>
+                            <button className='py-2 md:px-8 px-4 mt-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>
+                                View Recipes
+                            </button>
+                        </Link>
+
+
 
                     </div>
 
