@@ -8,9 +8,9 @@ const ChefCard = (props) => {
 
     console.log(img_url);
     return (
-        <div className='border rounded-xl border-slate-300 bg-[#FFFAFA]'>
-            <div className='flex md:flex-row flex-col gap-2 md:gap-6'>
-                <img className='md:w-64 md:h-64 md:rounded-l-xl ' src={img_url} alt="" />
+        <div className='border rounded-xl border-slate-200 bg-[#FFFAFA] overflow-hidden'>
+            <div className='flex md:flex-row flex-col gap-2 md:gap-6 '>
+                <img className='md:w-64 md:h-64 ' src={img_url} alt="" />
                 <div className='p-4 md:p-0 md:pt-4 flex-col items-start justify-between'>
                     <h2 className='text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-3xl font-semibold'>{name}</h2>
                     <div className='flex flex-col gap-2 mt-4 justify-between'>
@@ -20,7 +20,7 @@ const ChefCard = (props) => {
                         <h2 className='text-xl font-semibold text-slate-600'> <HandThumbUpIcon className='h-6 w-6 inline mb-1' /> Likes: {likes} </h2>
 
                         <Link to={`/recipe/${id}`}>
-                            <button className='py-2 md:px-8 px-4 mt-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>
+                            <button className='py-2 md:px-8 px-4 mt-4 w-full  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>
                                 View Recipes
                             </button>
                         </Link>
