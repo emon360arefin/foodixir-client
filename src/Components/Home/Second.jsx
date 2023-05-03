@@ -24,7 +24,7 @@ const Second = () => {
 
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-10 mt-10'>
                     {
-                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : null
+                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : <progress className="progress w-56"></progress>
                     }
                 </div>
 
