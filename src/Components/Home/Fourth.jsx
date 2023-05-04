@@ -7,7 +7,7 @@ const Fourth = () => {
     return (
         <div className='py-12 md:py-16 bg-white'>
             <div className='max-w-7xl mx-auto px-2'>
-                <h2 className='text-4xl text-center md:text-4xl font-bold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Join Our Community</h2>
+                <h2 className='text-4xl text-center md:text-4xl font-bold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Meet The Community</h2>
 
                 <h2 className='text-xl text-center text-slate-600 my-6 leading-snug'>Dive into exclusive tutorials, step-by-step guides, and expert advice to enhance your culinary journey. Whether you're a beginner or an experienced cook, this section will inspire you to explore new flavors, refine your techniques, and create extraordinary dishes. Embark on a culinary adventure and learn from the best chef to unleash your inner culinary maestro.</h2>
 

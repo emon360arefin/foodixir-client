@@ -6,7 +6,6 @@ const ChefCard = (props) => {
 
     const { id, img_url, name, experience, number_of_recipes, likes } = props.chef
 
-    console.log(img_url);
     return (
         <div className='border rounded-xl border-slate-200 bg-[#FFFAFA] overflow-hidden'>
             <div className='flex md:flex-row flex-col gap-2 md:gap-6 '>
