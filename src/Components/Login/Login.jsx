@@ -9,7 +9,8 @@ const Login = () => {
     const { signInUser, gitSignIn, googleSignIn } = useContext(AuthContext);
     const navigate = useNavigate()
 
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(null);
 
     const location = useLocation()
 
@@ -31,6 +32,7 @@ const Login = () => {
 
             })
             .catch(error => {
+                console.log(error);
                 setError(error.message)
             })
     }
@@ -90,6 +92,9 @@ const Login = () => {
                             <button onClick={handleGooglSignIn} className='md:py-2 py-1 md:px-8 px-4 border w-full rounded hover:shadow-md transform-all ease-in-out duration-500'> <FcGoogle className='inline mb-1 mr-2 text-2xl ' /> <span className='text-xl'>Continue With Google</span> </button>
 
                             <button onClick={handleGitSignIn} className='md:py-2 py-1 md:px-8 px-4 border w-full rounded hover:shadow-md transform-all ease-in-out duration-500 '> <BsGithub className='inline mb-1 mr-2 text-2xl ' /> <span className='text-xl'>Continue With GitHub</span> </button>
+
+                            <p className='text-red-400'>{error}</p>
+                            <p className='text-green-400'>{success}</p>
                         </div>
                     </div>
                 </div>

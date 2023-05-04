@@ -7,9 +7,9 @@ const RecipePage = (props) => {
     return (
         <div className='bg-white py-6 md:py-16'>
             <div className='px-2 max-w-7xl mx-auto'>
-                <div className=' grid md:grid-cols-12 rounded-xl grid-cols-1 gap-8 border border-slate-200 bg-[#FFFAFA] pb-4 md:pb-0'>
+                <div className=' grid md:grid-cols-12 rounded-xl overflow-hidden grid-cols-1 gap-8 border border-slate-200 bg-[#FFFAFA] pb-4 md:pb-0'>
                     <div className="md:col-span-3 col-span-12 relative">
-                        <img className=' rounded-xl' src={img_url} alt="" />
+                        <img className='' src={img_url} alt="" />
                         
                     </div>
                     <div className='md:col-span-9 col-span-12 pl-8 flex flex-col justify-center md:pr-12 pr-4'>
