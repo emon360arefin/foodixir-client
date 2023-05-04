@@ -1,6 +1,8 @@
 import React from 'react';
 import Hero from './Hero';
 import ChefCard from './Second';
+import Third from './Third';
+import Fourth from './Fourth';
 
 const Home = () => {
 
@@ -10,6 +12,8 @@ const Home = () => {
         <div>
             <Hero color={color}></Hero>
             <ChefCard> </ChefCard>
+            <Third></Third>
+            <Fourth></Fourth>
         </div>
     );
 };

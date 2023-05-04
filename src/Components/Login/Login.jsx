@@ -41,6 +41,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
@@ -52,6 +53,7 @@ const Login = () => {
         gitSignIn()
             .then(result => {
                 console.log(result.user);
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)

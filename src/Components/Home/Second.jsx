@@ -16,7 +16,7 @@ const Second = () => {
 
 
     return (
-        <div className='pt-6 md:pt-16 '>
+        <div className='py-12 md:py-16 '>
             <div className='max-w-7xl mx-auto px-2'>
                 <h2 className='text-4xl text-center md:text-4xl font-bold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Meet Our Talented Chefs</h2>
 
