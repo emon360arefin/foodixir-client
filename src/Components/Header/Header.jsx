@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
 import { AuthContext } from '../Authentication/AuthProvider';
 
@@ -7,7 +7,9 @@ const Header = () => {
 
     const { user, signOutUser } = useContext(AuthContext)
 
-    const color = 'text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-lg hover:bg-slate-300 transition-all duration-500 px-4 py-px rounded w-full md:w-auto'
+    const activeClassList = 'text-[#EB1750] text-lg bg-slate-100 border  px-4 py-px rounded w-full md:w-auto';
+
+    const inactiveClassList = 'text-[#EB1750] text-lg px-4 py-px rounded w-full md:w-auto ';
 
     let items = [
         { "id": 1, "name": "Home", "path": "/" },
@@ -37,7 +39,7 @@ const Header = () => {
 
                     <ul className='flex md:flex-row flex-col items-end gap-4 md:gap-6 w-full md:w-auto'>
                         {
-                            items.map(item => <Link onClick={() => setOpen(!open)} className={color} key={item.id} to={item.path}>{item.name}</Link>)
+                            items.map(item => <NavLink onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? activeClassList : inactiveClassList} key={item.id} to={item.path}>{item.name}</NavLink>)
                         }
                     </ul>
                 </div>
@@ -60,6 +62,7 @@ const Header = () => {
                     hover && <div className={`bg-white shadow-md rounded-md px-4 py-2 absolute transition-all ease-in-out duration-500 right-36 hover ${hover ? 'top-16' : 'top-0'} `}>
                         <h2 className='text-center text-md font-semibold'>{user.displayName}</h2>
                     </div>
+
                 }
 
 
