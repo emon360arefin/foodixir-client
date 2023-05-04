@@ -24,7 +24,7 @@ const Second = () => {
 
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-10 mt-10'>
                     {
-                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : <div className='min-h-screen flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-lg bg-[#ffffffe4]'> <span className='text-xl mb-2'>Loading ...</span> <progress className="progress  mx-auto  w-1/3">  </progress> </div>
+                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : <div className='min-h-96 flex flex-col items-center justify-center  z-20 backdrop-blur-lg bg-[#ffffffe4]'> <span className='text-xl mb-2'>Loading ...</span> <progress className="progress  mx-auto  w-1/3">  </progress> </div>
                     }
                 </div>
 

@@ -5,7 +5,7 @@ import { AuthContext } from '../Authentication/AuthProvider';
 
 const Header = () => {
 
-    const { user } = useContext(AuthContext)
+    const { user, signOutUser } = useContext(AuthContext)
 
     const color = 'text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-lg hover:bg-slate-300 transition-all duration-500 px-4 py-px rounded w-full md:w-auto'
 
@@ -14,6 +14,11 @@ const Header = () => {
         { "id": 2, "name": "Blog", "path": "/blog" }]
 
     const [open, setOpen] = useState(true);
+    const [hover, setHover] = useState(false)
+
+    const handleLogOut = () => {
+        signOutUser()
+    }
 
 
 
@@ -36,10 +41,17 @@ const Header = () => {
                 </div>
 
 
-                { !user ?
+                {!user ?
                     <Link to='/login' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link> :
 
-                    <Link to='/blog' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Profile</Link>
+                    <div className='flex gap-4 items-center'>
+                        <Link to='/blog' className='w-12 overflow-hidden ' title={user.displayName}>
+                            <img className='w-full rounded-full border-2 border-slate-40' src={user.photoURL} alt="" />
+                        </Link>
+
+                        <Link onClick={handleLogOut} className='py-1 md:px-8 px-4 h-8 border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Log Out</Link>
+
+                    </div>
                 }
             </div>
         </nav>
