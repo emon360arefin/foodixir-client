@@ -28,8 +28,8 @@ const RecipeCard = (props) => {
     const handleFav = () => {
         if (!fav) {
             notify(recipeName, "added")
-        } 
-        else{
+        }
+        else {
             notify(recipeName, "already added")
         }
 
@@ -42,25 +42,26 @@ const RecipeCard = (props) => {
 
             <div className=' max-w-7xl mx-auto border bg-white mb-8 rounded-xl overflow-hidden'>
 
-                <div className='px-4 py-2 bg-slate-200 flex items-center gap-8'>
+                <div className='px-4 py-4 bg-slate-200 flex md:flex-row flex-col md:items-center gap-4 md:gap-8'>
                     <h2 className=' text-2xl  font-semibold'><IoFastFoodOutline className='inline mb-2' /> Recipe Name: <span className='text-[#EB1848]'>{recipeName}</span> </h2>
-                    <div className='flex items-center justify-center gap-4 ml-auto'>
-                        <h2 className='text-xl text-slate-700 font-semibold'>Rating:</h2>
-                        <Rating
-                            placeholderRating={rating}
-                            readonly
-                            emptySymbol={<AiOutlineStar className='text-[#EA1C3B] text-2xl' />}
-                            placeholderSymbol={<AiFillStar className='text-[#EA1C3B] text-2xl' />}
-                            fullSymbol={<AiFillStar className='text-[#EA1C3B] text-2xl' />}
-                            className='mt-2'
-                        />
-                    </div>
-                    <div>
+                    <div className='flex items-center justify-between md:justify-center gap-8 md:ml-auto'>
+                        <div className='flex items-center  gap-2'>
+                            <h2 className='text-xl text-slate-700 font-semibold'>Rating:</h2>
+                            <Rating
+                                placeholderRating={rating}
+                                readonly
+                                emptySymbol={<AiOutlineStar className='text-[#EA1C3B] text-2xl' />}
+                                placeholderSymbol={<AiFillStar className='text-[#EA1C3B] text-2xl' />}
+                                fullSymbol={<AiFillStar className='text-[#EA1C3B] text-2xl' />}
+                                className='mt-2'
+                            />
+                        </div>
                         <Link onClick={handleFav}><BsFillBookmarkFill className={`text-${!fav ? 'slate-500' : '[#EA1C3B]'} text-2xl`} /></Link>
 
                     </div>
+
                 </div>
-                <div className='p-4 flex gap-4'>
+                <div className='p-4 flex gap-4 md:flex-row flex-col'>
                     <div className='w-full md:w-1/3 bg-slate-100 rounded-lg p-4'>
                         <h2 className='text-2xl font-semibold mb-3 text-slate-700'> <VscChecklist className='inline mb-1' />  Ingredients:</h2>
                         {ingredients.map(ingredient => <li className=''>{ingredient}</li>)}

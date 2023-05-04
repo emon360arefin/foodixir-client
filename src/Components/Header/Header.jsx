@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { AuthContext } from '../Authentication/AuthProvider';
 
 const Header = () => {
+
+    const { user } = useContext(AuthContext)
 
     const color = 'text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-lg hover:bg-slate-300 transition-all duration-500 px-4 py-px rounded w-full md:w-auto'
 
@@ -31,7 +34,13 @@ const Header = () => {
                         }
                     </ul>
                 </div>
-                <Link to='/login' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link>
+
+
+                { !user ?
+                    <Link to='/login' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link> :
+
+                    <Link to='/blog' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Profile</Link>
+                }
             </div>
         </nav>
     );
