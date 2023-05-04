@@ -29,7 +29,7 @@ const Recipe = () => {
         <div>
             <div>
                 {
-                    chef ? <RecipePage key={chef.id} chef={chef}></RecipePage> : null
+                    chef ? <RecipePage key={chef.id} chef={chef}></RecipePage> : <div className='min-h-screen flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-lg bg-[#ffffffe4]'> <span className='text-xl mb-2'>Loading ...</span> <progress className="progress  mx-auto  w-1/3">  </progress> </div>
                 }
             </div>
             <div className=' bg-[#FFFAFA] py-6 md:py-16 px-2'>
@@ -40,7 +40,7 @@ const Recipe = () => {
                 </div>
                 <div className=''>
                     {
-                        recipe.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>)
+                        recipe ? recipe.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>) : <div className='min-h-screen flex items-center justify-center absolute top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-lg bg-[#ffffffe4]'> <progress className="progress mx-auto  w-1/3"></progress> </div>
                     }
                 </div>
             </div>
