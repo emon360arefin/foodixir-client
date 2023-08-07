@@ -14,7 +14,7 @@ const Hero = (props) => {
                 </div>
 
                 <div className='w-full md:w-1/2 pl-20'>
-                    <img className='' src="/public/hero-1.png" alt="" />
+                    <img className='' src="/hero-1.png" alt="" />
                 </div>
             </div>
         </div>

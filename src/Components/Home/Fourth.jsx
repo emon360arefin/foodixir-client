@@ -17,7 +17,7 @@ const Fourth = () => {
                         <CommunityCard></CommunityCard>
                         <div className='rounded-lg bg-[#FFFAFA] h-80 w-[470px] p-6 mx-8 shadow-md'>
                             <div className='flex gap-6'>
-                                <img className='w-24 h-24 rounded-full' src="/public/home/home-2.jpg" alt="" />
+                                <img className='w-24 h-24 rounded-full' src="/home/home-2.jpg" alt="" />
                                 <div className='flex flex-col justify-center' >
                                     <h2 className='text-xl font-semibold'>David Miller</h2>
                                     <h2>Residence: America</h2>
@@ -32,7 +32,7 @@ const Fourth = () => {
 
                         <div className='rounded-lg bg-[#FFFAFA] h-80 w-[470px] p-6 mx-8 shadow-md'>
                             <div className='flex gap-6'>
-                                <img className='w-24 h-24 rounded-full' src="/public/home/home-3.jpg" alt="" />
+                                <img className='w-24 h-24 rounded-full' src="/home/home-3.jpg" alt="" />
                                 <div className='flex flex-col justify-center' >
                                     <h2 className='text-xl font-semibold'>Jonathan Robby</h2>
                                     <h2>Residence: Germany</h2>

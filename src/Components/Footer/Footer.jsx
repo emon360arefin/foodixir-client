@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className='max-w-[1170px] mx-auto grid grid-cols-2 md:grid-cols-3 gap-4'>
                     <div className='mr-0 md:mr-20 col-span-2 md:col-span-1'>
                         <Link to="/" className='flex-1 relative'>
-                            <img className='w-56' src="/public/logo.png" alt="" />
+                            <img className='w-56' src="/logo.png" alt="" />
                         </Link>
                         <p className="text-gray-800 mt-4">Welcome to a culinary haven where flavors collide, techniques inspire, and creativity flourishes. </p>
                     </div>

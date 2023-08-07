@@ -1,9 +1,13 @@
 import React from 'react';
-import Header from '../Header/Header';
+
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
+import Header from '../Header/Header2';
+import useScrollToTop from '../../Utility/useScrollToTop';
 
 const Landing = () => {
+    useScrollToTop()
+
     return (
         <div>
             <Header></Header>

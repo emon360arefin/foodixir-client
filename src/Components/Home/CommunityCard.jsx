@@ -4,7 +4,7 @@ const CommunityCard = () => {
     return (
         <div className='rounded-lg bg-[#FFFAFA] w-[470px] h-80 p-6 mx-8 shadow-md'>
             <div className='flex gap-6'>
-                <img className='w-24 h-24 rounded-full' src="/public/home/home-1.jpg" alt="" />
+                <img className='w-24 h-24 rounded-full' src="/home/home-1.jpg" alt="" />
                 <div className='flex flex-col justify-center' >
                     <h2 className='text-xl font-semibold'>Lina Allen</h2>
                     <h2>Residence: Australia</h2>

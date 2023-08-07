@@ -26,8 +26,8 @@ const Header = () => {
 
 
     return (
-        <nav className=' bg-[#fffafa] sticky left-0 top-0 right-0 z-50'>
-            <div className='inner max-w-7xl h-16 mx-auto px-2  flex items-center justify-between z-40 relative'>
+        <nav className=' bg-[#fffafa] sticky left-0 top-0 right-0 z-[15]'>
+            <div className='inner max-w-7xl h-16 mx-auto px-2  flex items-center justify-between z-40 relative bg-slate-400'>
                 <Link to="/">
                     <img src="/logo.png" className='md:h-10 h-8 ' alt="" /></Link>
                 <div onClick={() => setOpen(!open)} className='md:hidden static z-50'>
@@ -35,9 +35,10 @@ const Header = () => {
                         <Bars3Icon className="h-6 w-6 text-[#EA1D35]" /> :
                         <XMarkIcon className="h-6 w-6 text-[#EA1D35] " />}</span>
                 </div>
-                <div className={`absolute md:static md:-ml-20 bg-[#fffafa] p-4 md:p-0 md:bg-transparent flex w-full md:w-auto justify-end transition-all ease-in-out duration-300 md:top-16 z-10 md:z-20 ${!open ? 'top-16' : '-top-52'}`}>
 
-                    <ul className='flex md:flex-row flex-col items-end gap-4 md:gap-6 w-full md:w-auto'>
+                <div className={`absolute md:static md:-ml-20 bg-[#fffafa] p-4 md:p-0 md:bg-transparent flex w-full md:w-auto justify-end transition-all ease-in-out duration-300 md:top-16 bg-green-200 ${!open ? 'top-16' : '-top-52'}`}>
+
+                    <ul className='flex md:flex-row flex-col items-end gap-4 md:gap-6 w-full md:w-auto z-10'>
                         {
                             items.map(item => <NavLink onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? activeClassList : inactiveClassList} key={item.id} to={item.path}>{item.name}</NavLink>)
                         }
@@ -46,20 +47,20 @@ const Header = () => {
 
 
                 {!user ?
-                    <Link to='/login' className='md:py-1 py-1 md:px-8 px-4  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link> :
+                    <Link to='/login' className='flex items-center justify-center w-24 h-8  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link> :
 
                     <div className='flex gap-4 items-center'>
 
-                        <div className='h-12 w-12 rounded-full bg-slate-100 relative border-2 border-slate-300'>
+                        <div className='h-10 w-10 rounded-full bg-slate-100 relative border-2 border-slate-300 cursor-pointer'>
                             <img onMouseOut={() => setHover(false)} onMouseEnter={() => setHover(true)} className='w-12 rounded-full absolute top-0 bottom-0' src={user.photoURL} alt="" />
                         </div>
 
-                        <Link onClick={handleLogOut} className='py-1 md:px-8 px-4 h-8 border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Log Out</Link>
+                        <Link onClick={handleLogOut} className='flex items-center justify-center w-24 h-8 border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Log Out</Link>
                     </div>
                 }
 
                 {
-                    hover && <div className={`bg-white shadow-md rounded-md px-4 py-2 absolute transition-all ease-in-out duration-500 right-36 hover ${hover ? 'top-16' : 'top-0'} `}>
+                    hover && <div className={`bg-white shadow-md rounded-md px-4 py-2 absolute transition-all ease-in-out duration-500 right-36 hover  ${hover ? 'top-16' : 'top-0'} `}>
                         <h2 className='text-center text-md font-semibold'>{user.displayName}</h2>
                     </div>
 

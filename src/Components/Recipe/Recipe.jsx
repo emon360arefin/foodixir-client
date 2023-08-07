@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RecipePage from './RecipePage';
 import RecipeCard from './RecipeCard';
+import Loader from '../Shared/Loader';
 
 const Recipe = () => {
     const { id } = useParams();
@@ -29,7 +30,7 @@ const Recipe = () => {
         <div>
             <div>
                 {
-                    chef ? <RecipePage key={chef.id} chef={chef}></RecipePage> : <div className='min-h-screen flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-lg bg-[#ffffffe4]'> <span className='text-xl mb-2'>Loading ...</span> <progress className="progress  mx-auto  w-1/3">  </progress> </div>
+                  chef &&  chef ? <RecipePage key={chef.id} chef={chef}></RecipePage> : <Loader></Loader>
                 }
             </div>
             <div className=' bg-[#FFFAFA] py-6 md:py-16 px-2'>
@@ -40,7 +41,7 @@ const Recipe = () => {
                 </div>
                 <div className=''>
                     {
-                        recipe ? recipe.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>) : <div className='min-h-screen flex flex-col items-center justify-center absolute top-0 left-0 right-0 bottom-0 z-20 backdrop-blur-lg bg-[#ffffffe4]'> <span className='text-xl mb-2'>Loading ...</span> <progress className="progress  mx-auto  w-1/3">  </progress> </div>
+                        recipe ? recipe.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>) : <Loader></Loader>
                     }
                 </div>
             </div>

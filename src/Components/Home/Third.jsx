@@ -13,7 +13,7 @@ const Third = () => {
                 
                 <div className='flex md:flex-row flex-col gap-6 md:gap-16 mt-12'>
                     <div className='w-full md:w-1/2'>
-                        <img className='rounded-lg' src="/public/third.jpg" alt="" />
+                        <img className='rounded-lg' src="/third.jpg" alt="" />
                     </div>
                     <div className='w-full md:w-1/2 flex flex-col gap-6'>
                         <h2 className='text-3xl text-slate-800 font-semibold'>Expert Tips and Techniques from Top Chefs</h2>

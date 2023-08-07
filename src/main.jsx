@@ -14,6 +14,8 @@ import Recipe from './Components/Recipe/Recipe.jsx';
 import AuthProvider from './Components/Authentication/AuthProvider';
 import PrivateRoute from './Components/Route/PrivateRoute';
 
+
+
 const router = createBrowserRouter([
     {
         path: "/",
