@@ -97,7 +97,6 @@ const Register = () => {
 
                                 // Save user 
                                 saveUser(result.user)
-
                                 navigate(from, { replace: true })
                             })
                             .catch(error => {

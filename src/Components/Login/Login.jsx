@@ -36,7 +36,8 @@ const Login = () => {
             .then(result => {
                 event.target.reset()
                 toast.success("Logged In Successfully")
-                saveUser(result.email)
+                console.log("Email", result.user.email)
+                saveUser(result.user)
                 navigate(from, { replace: true })
 
             })
@@ -52,7 +53,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 toast.success("Logged In Successfully")
-                saveUser(result.email)
+                saveUser(result.user)
                 navigate(from, { replace: true })
             })
             .catch(error => {

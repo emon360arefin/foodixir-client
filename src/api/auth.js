@@ -2,8 +2,7 @@
 
 export const saveUser = user => {
     const currentUser = {
-        email: user.email,
-        displayName: user.displayName
+        email: user.email
     }
 
     fetch(`https://assignment-10-chef-server.vercel.app/users/${user?.email}`, {
