@@ -14,6 +14,7 @@ import Recipe from './Components/Recipe/Recipe.jsx';
 import AuthProvider from './Components/Authentication/AuthProvider';
 import PrivateRoute from './Components/Route/PrivateRoute';
 import { Toaster } from 'react-hot-toast'
+import NotFound from './Components/Shared/NotFound/NotFound';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             }
         ]
     },
+    {
+        path: "*",
+        element: <NotFound></NotFound>
+    }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
