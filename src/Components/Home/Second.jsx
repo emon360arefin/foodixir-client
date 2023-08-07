@@ -22,7 +22,7 @@ const Second = () => {
 
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-10 mt-10'>
                     {
-                        chefs ? chefs.map(chef => <ChefCard chef={chef}></ChefCard>) : <Loader></Loader>
+                        chefs ? chefs.map((chef, index) => <ChefCard key={index} chef={chef}></ChefCard>) : <Loader></Loader>
                     }
                 </div>
 

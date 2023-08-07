@@ -1,18 +1,62 @@
 import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
-import { BsGithub } from "react-icons/bs";
+import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
+import { FaUserCircle } from "react-icons/fa";
+import { TbFidgetSpinner } from 'react-icons/tb';
 import { AuthContext } from '../Authentication/AuthProvider';
+import toast from 'react-hot-toast'
+import { saveUser } from '../../api/auth';
+import { useEffect } from 'react';
 
 const Register = () => {
 
-    const { createUser, updateUser, googleSignIn, gitSignIn } = useContext(AuthContext)
+    const {
+        createUser,
+        updateUser,
+        googleSignIn,
+        gitSignIn,
+        loading,
+        setLoading, } = useContext(AuthContext)
 
     const [error, setError] = useState(null);
     const [success, setSuccess] = useState(null);
+    const [hidden, setHidden] = useState(true)
+    const [proimg, setProimg] = useState(null)
+
 
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
 
+    // Image Upload
+    const imgUpload = (event) => {
+
+        const image = event.target.files[0];
+        const formData = new FormData();
+        formData.append('image', image)
+
+        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API}`
+
+        fetch(url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                // Creating user
+                const imgURL = imgData.data.display_url;
+                console.log(imgURL);
+                setProimg(imgURL)
+
+            })
+            .catch(error => {
+                toast.error(err.message)
+            })
+    }
+
+
+    // Handle Form
 
     const handleSubmitForm = (event) => {
         event.preventDefault()
@@ -23,114 +67,202 @@ const Register = () => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
-        const photo = event.target.photo.value;
 
-        console.log(name, email, password, photo)
+        // Image Upload
+        const image = event.target.image.files[0];
+        const formData = new FormData();
+        formData.append('image', image)
+
+        const url = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API}`
+
+        fetch(url, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(imgData => {
+                // Creating user
+                const imgURL = imgData.data.display_url;
+
+                createUser(email, password)
+                    .then(result => {
+                        console.log(result.user);
+                        event.target.reset()
+
+                        // Update user
+                        updateUser(name, imgURL)
+                            .then(() => {
+                                setSuccess("User account has been created successfully")
+                                toast.success("Resigter successful")
+
+                                // Save user 
+                                saveUser(result.user)
+
+                                navigate(from, { replace: true })
+                            })
+                            .catch(error => {
+                                setError(error.message)
+                                toast.error(error.message)
+                                setLoading(false)
+                            })
+
+                    })
+                    .catch(error => {
+
+                        setError(error.message)
+                        toast.error(error.message)
+                        setLoading(false)
+                    })
+
+            })
+
 
         if (password.length < 6) {
             setError("Password has to be at least 6 characters");
             return
         }
 
-        createUser(email, password)
-            .then(result => {
-                console.log(result.user);
-                event.target.reset()
-                setSuccess("User account has been created successfully")
-                updateUser(name, photo)
-                    .then(result => {
 
-                    })
-                    .catch(error => {
-                        setError(error.message)
-                    })
-
-                navigate('/', { replace: true })
-
-            })
-            .catch(error => {
-                console.log(error);
-                setError(error.message)
-            })
     }
 
     const handleGooglSignIn = () => {
         googleSignIn()
             .then(result => {
                 setSuccess('User account has been created successfully');
-                navigate('/', { replace: true })
-
-                console.log(result.user);
+                toast.success("You've signed up successfully")
+                saveUser(result.user)
+                navigate(from, { replace: true })
             })
             .catch(error => {
                 setError(error.message)
-                console.log(error);
+                toast.error(error.message)
+                setLoading(false)
             })
     }
 
-    const handleGitSignIn = () => {
-        gitSignIn()
-            .then(result => {
-                setSuccess("User account has been created successfully");
-                navigate('/', { replace: true })
-
-                console.log(result.user);
-            })
-            .catch(error => {
-                setError(error.message)
-                console.log(error);
-            })
-    }
 
 
 
     return (
         <div className='bg-[#FFFAFA] py-6 md:py-16'>
             <div className='px-2 max-w-7xl mx-auto'>
-                <div className=" flex justify-center ">
-                    <div className="rounded-xl w-full pb-4 max-w-lg shadow-md bg-base-100">
-                        <form onSubmit={handleSubmitForm} className="p-6">
-                            <div className="form-control">
+                <div className=" flex flex-col md:flex-row gap-8 md:gap-28 justify-center items-center">
+
+                    <div >
+                        <img src="/signup-red.svg" alt="" />
+                    </div>
+
+
+
+                    <div className="w-full md:w-7/12 rounded-md flex-shrink-0 pb-6  max-w-lg shadow-md bg-white ml-auto">
+
+                        <form onSubmit={handleSubmitForm} className="p-6 flex flex-col gap-4">
+
+
+                            {/* Full Name */}
+                            <div className="flex flex-col gap-2">
                                 <label className="label">
                                     <span className="label-text">Name</span>
                                 </label>
-                                <input type="text" name='name' placeholder="Enter your name" className="input input-bordered" required />
+                                <input
+                                    type="text"
+                                    name='name'
+                                    placeholder="Enter your name"
+                                    className="border px-4 py-2 rounded focus:outline-none"
+                                    required />
                             </div>
-                            <div className="form-control">
+
+                            {/* File Upload  */}
+                            <div className='flex gap-4 mt-2'>
+
+                                <label htmlFor='image' className=' flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer'>
+                                    Select Your Profile Picture
+                                </label>
+                                <input
+                                    required
+                                    type='file'
+                                    id='image'
+                                    name='image'
+                                    accept='image/*'
+                                    className='sr-only'
+                                    onChange={imgUpload}
+                                />
+
+                                {
+                                    proimg && proimg ? <div className='h-10 w-10 flex items-center justify-center rounded-full border border-slate-300 overflow-hidden'>
+                                        <img className='w-auto h-full' src={proimg} alt="" />
+                                    </div> :
+
+                                        <div className='w-10 h-10'> <FaUserCircle className='text-[40px] text-slate-500'></FaUserCircle> </div>
+                                }
+
+                            </div>
+
+                            {/* Email Field */}
+                            <div className="flex flex-col gap-2">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" name='email' placeholder="Enter your email" className="input input-bordered" required />
+                                <input
+                                    type="email"
+                                    name='email'
+                                    placeholder="Enter your email"
+                                    className="border px-4 py-2 rounded focus:outline-none"
+                                    required />
                             </div>
-                            <div className="form-control">
+
+                            {/* Password Field */}
+                            <div className="flex flex-col gap-2">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="Enter password" className="input input-bordered" required />
+                                <div className='flex items-center gap-4 border rounded pr-2'>
+                                    <input
+                                        type={hidden ? 'password' : 'text'}
+                                        name='password'
+                                        placeholder="Enter password"
+                                        className=" px-4 py-2 rounded w-full focus:outline-none"
+                                        required />
+
+                                    <div onClick={() => setHidden(!hidden)}>
+                                        {
+                                            hidden ? <AiFillEyeInvisible className='cursor-pointer text-2xl hover:text-[#EB1651]'></AiFillEyeInvisible> :
+                                                <AiFillEye className='cursor-pointer text-2xl hover:text-[#EB1651]'></AiFillEye>
+                                        }
+                                    </div>
+                                </div>
 
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Photo URL</span>
-                                </label>
-                                <input type="text" name='photo' placeholder="Photo URL" className="input input-bordered" required />
-                                <label className="label">
-                                    <h2>Already have an account? Please <span className='text-blue-700'> <Link to='/login'>Login</Link>  </span></h2>
-                                </label>
+
+
+
+
+                            {/* Button */}
+                            <div className=" mt-2">
+                                <button className="bg-[#EB1651] hover:bg-[#fc2663] text-white text-xl py-2 px-auto rounded w-full transition-all duration-150 ease-in-out flex justify-center items-center h-10">
+                                    {
+                                        loading ? <TbFidgetSpinner className=' animate-spin' /> : "Register"
+                                    }
+
+                                </button>
                             </div>
-                            <div className="form-control mt-6">
-                                <button className="bg-[#EB1651] text-white text-xl py-2 px-auto rounded-md">Register</button>
-                            </div>
+
+
+
+                            {/* Already */}
+
+                            <label className="label">
+                                <h2>Already have an account? Please <span className='text-[#EB1651]'> <Link to='/login'>Login</Link>  </span></h2>
+                            </label>
 
                         </form>
+                        <div className=' px-6 flex flex-col gap-2'>
+                            <h2 className='text-center mb-4 text-xl text-slate-700'>_______ OR _______</h2>
+                            <button onClick={handleGooglSignIn} className='md:py-2 py-2 md:px-8 px-4 border w-full rounded hover:shadow-md transform-all ease-in-out duration-500'> <FcGoogle className='inline mb-1 mr-2 text-2xl ' /> <span className='text-xl'>Continue With Google</span> </button>
 
-                        <div className='px-6 flex flex-col gap-4'>
-                            <h2 className='text-center text-xl text-slate-700'> _______ OR _______</h2>
-                            <button onClick={handleGooglSignIn} className='md:py-2 py-1 md:px-8 px-4 border w-full rounded hover:shadow-md transform-all ease-in-out duration-500'> <FcGoogle className='inline mb-1 mr-2 text-2xl  ' /> <span className='text-lg'>Continue With Google</span> </button>
 
-                            <button onClick={handleGitSignIn} className='md:py-2 hover:shadow-md transform-all ease-in-out duration-500 py-1 md:px-8 px-4 border w-full rounded '> <BsGithub className='inline mb-1 mr-2 text-2xl ' /> <span className='text-lg'>Continue With GitHub</span> </button>
-                            <p className='text-red-400'>{error}</p>
-                            <p className='text-green-400'>{success}</p>
+                            <p className='text-red-400 text-center'>{error}</p>
+                            <p className='text-green-400 text-center'>{success}</p>
                         </div>
                     </div>
                 </div>

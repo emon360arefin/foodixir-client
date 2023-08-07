@@ -36,7 +36,7 @@ const Header = () => {
 
     const handleLogOut = () => {
         signOutUser()
-        setOpen(!open)
+        setOpen(true)
     }
 
     useEffect(() => {
@@ -50,15 +50,18 @@ const Header = () => {
 
 
     return (
-        <div className={`  h-full ${scroll ? 'bg-[#ffffffa9] shadow-sm backdrop-blur-xl' : ' bg-[#FFFAFA] shadow-none '}   header z-[15] sticky top-0`}>
+        <div className={`  h-full ${scroll ? 'md:bg-[#ffffffa9] shadow-sm backdrop-blur-xl' : ' bg-[#FFFAFA] shadow-none '}   header z-[15] sticky top-0`}>
 
             {/* Inner Section */}
             <div className={`max-w-7xl mx-auto flex transition-all duration-500 ease-in-out items-center justify-evenly md:bg-transparent h-full  relative z-[5] ${scroll ? ' md:h-[70px]' : ' md:h-[90px]'}`}>
 
-                <div className='w-full md:w-2/12 px-4 bg-slate-100 md:bg-transparent  py-4 flex z-20 '>
+                <div className={`w-full md:w-2/12 px-4  md:bg-transparent  py-4 flex z-20 transition-all duration-300 ease-in-out h-full ${scroll ? 'bg-[#ffffffa9] md:bg-transparent shadow md:shadow-none backdrop-blur-xl md:backdrop-blur-none' : 'bg-[#FFFAFA]'}`}>
 
                     {/* Logo */}
-                    <Link className=' flex items-center ' to='/'> <img className={`w-1/3 transition-all duration-300 ease-in-out ${scroll ? 'md:w-11/12' : 'md:w-full'}`} src="/logo.png" alt="" /></Link>
+                    <Link
+                        onClick={() => setOpen(true)}
+                        className=' flex items-center '
+                        to='/'> <img className={`w-1/3 transition-all duration-300 ease-in-out select-none ${scroll ? 'md:w-11/12' : 'md:w-full'}`} src="/logo.png" alt="" /></Link>
 
                     {/* Profile Icon */}
 
@@ -87,7 +90,7 @@ const Header = () => {
 
                 {/* Dropdown  */}
 
-                <ul className={`w-full  md:w-10/12 backdrop-blur-sm md:backdrop-blur-0  text-right absolute md:static bg-white  md:bg-transparent  flex md:flex-row flex-col md:items-center justify-start md:justify-center z-60 gap-1 px-4 py-4 transition-all duration-500 ease-out top-0 pt-20 md:p-0 ${open ? ' -top-56 ' : 'top-0 '}`}>
+                <ul className={`w-full  md:w-10/12 backdrop-blur-sm md:backdrop-blur-0  text-right absolute md:static bg-white  md:bg-transparent  flex md:flex-row flex-col md:items-center justify-start md:justify-center z-60 gap-1 px-4 py-4 transition-all duration-500 ease-out pt-16 md:p-0 shadow md:shadow-none ${open ? ' -top-[240px] ' : 'top-0 '}`}>
 
 
                     {

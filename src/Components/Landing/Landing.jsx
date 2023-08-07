@@ -2,8 +2,9 @@ import React from 'react';
 
 import { Outlet } from 'react-router-dom';
 import Footer from '../Footer/Footer';
-import Header from '../Header/Header2';
+
 import useScrollToTop from '../../Utility/useScrollToTop';
+import Header from '../Header/Header2';
 
 const Landing = () => {
     useScrollToTop()

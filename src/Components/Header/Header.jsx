@@ -1,15 +1,15 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid'
+import { RxCross2, RxHamburgerMenu } from 'react-icons/rx';
 import { AuthContext } from '../Authentication/AuthProvider';
 
 const Header = () => {
 
     const { user, signOutUser } = useContext(AuthContext)
 
-    const activeClassList = 'text-[#EB1750] text-lg bg-slate-100 border  px-4 py-px rounded w-full md:w-auto';
-
-    const inactiveClassList = 'text-[#EB1750] text-lg px-4 py-px rounded w-full md:w-auto ';
+    const activeClass = 'select-none ml-0 md:mr-6 text-xl text-left my-2 border-0 md:border-b-2 border-[#2895FF] px-2 pb-1  text-[#2895FF]'
+    const inactiveClass = 'select-none ml-0 md:mr-6 text-xl text-left my-2  border-0 md:border-b-2 border-transparent  px-2 pb-1 py-px '
 
     let items = [
         { "id": 1, "name": "Home", "path": "/" },
@@ -26,49 +26,29 @@ const Header = () => {
 
 
     return (
-        <nav className=' bg-[#fffafa] sticky left-0 top-0 right-0 z-[15]'>
-            <div className='inner max-w-7xl h-16 mx-auto px-2  flex items-center justify-between z-40 relative bg-slate-400'>
-                <Link to="/">
-                    <img src="/logo.png" className='md:h-10 h-8 ' alt="" /></Link>
-                <div onClick={() => setOpen(!open)} className='md:hidden static z-50'>
-                    <span>{open ?
-                        <Bars3Icon className="h-6 w-6 text-[#EA1D35]" /> :
-                        <XMarkIcon className="h-6 w-6 text-[#EA1D35] " />}</span>
-                </div>
+        <div className={`${scroll ? 'bg-[#ffffffa9] shadow-sm backdrop-blur-xl' : ' bg-blue-50 shadow-none '}  header z-[15] sticky top-0 -mb-24`}>
+            <div className={`max-w-[1400px] mx-auto flex transition-all duration-500 ease-in-out ${scroll ? 'h-auto md:h-[70px]' : 'h-auto md:h-[90px]'}`}>
 
-                <div className={`absolute md:static md:-ml-20 bg-[#fffafa] p-4 md:p-0 md:bg-transparent flex w-full md:w-auto justify-end transition-all ease-in-out duration-300 md:top-16 bg-green-200 ${!open ? 'top-16' : '-top-52'}`}>
-
-                    <ul className='flex md:flex-row flex-col items-end gap-4 md:gap-6 w-full md:w-auto z-10'>
-                        {
-                            items.map(item => <NavLink onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? activeClassList : inactiveClassList} key={item.id} to={item.path}>{item.name}</NavLink>)
-                        }
-                    </ul>
-                </div>
-
-
-                {!user ?
-                    <Link to='/login' className='flex items-center justify-center w-24 h-8  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Login</Link> :
-
-                    <div className='flex gap-4 items-center'>
-
-                        <div className='h-10 w-10 rounded-full bg-slate-100 relative border-2 border-slate-300 cursor-pointer'>
-                            <img onMouseOut={() => setHover(false)} onMouseEnter={() => setHover(true)} className='w-12 rounded-full absolute top-0 bottom-0' src={user.photoURL} alt="" />
-                        </div>
-
-                        <Link onClick={handleLogOut} className='flex items-center justify-center w-24 h-8 border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>Log Out</Link>
+                <div className='w-full md:w-2/12 bg-slate-100 md:bg-transparent  py-4 flex z-20'>
+                    <Link className='  px-4 flex items-center ' to='/'> <img className={`w-1/3 transition-all duration-300 ease-in-out ${scroll ? 'md:w-11/12' : 'md:w-full'}`} src="/logo.png" alt="" /></Link>
+                    
+                    <div onClick={() => setOpen(!open)} className='md:hidden mr-4 text-2xl text-[#1E90FF] flex items-center cursor-pointer'>
+                        {open ? <RxHamburgerMenu /> : <RxCross2 />}
                     </div>
-                }
-
-                {
-                    hover && <div className={`bg-white shadow-md rounded-md px-4 py-2 absolute transition-all ease-in-out duration-500 right-36 hover  ${hover ? 'top-16' : 'top-0'} `}>
-                        <h2 className='text-center text-md font-semibold'>{user.displayName}</h2>
-                    </div>
-
-                }
+                </div>
+                
+                <ul className={`w-full md:w-10/12 backdrop-blur-sm md:backdrop-blur-0 opacity-[98%]  text-right absolute md:static bg-white  md:bg-transparent  flex md:flex-row flex-col md:items-center justify-end z-10 gap-2 px-4 py-4 transition-all duration-500 ease-out ${open ? 'top-[-450px]' : 'top-12'}`}>
 
 
+                    {
+                        items.map(item => <NavLink onClick={() => setOpen(!open)} className={({ isActive }) => isActive ? activeClass : inactiveClass} key={item.id} to={item.path}> {item.name}</NavLink>)
+                    }
+
+                  <h2>Button</h2>
+                </ul>
             </div>
-        </nav>
+
+        </div>
     );
 };
 
