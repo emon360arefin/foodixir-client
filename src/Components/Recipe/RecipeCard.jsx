@@ -8,7 +8,6 @@ import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import StoreData from '../../Utility/storeData';
 import checkLocalStorage from '../../Utility/localStorage';
 
 
