@@ -13,8 +13,10 @@ const Fourth = () => {
 
 
                 <div>
-                    <Marquee className='flex gap-10 p-2' loop={0} >
-                        <CommunityCard></CommunityCard>
+                    <Marquee className='flex gap-10 p-2' loop={0} pauseOnHover={true}>
+                        
+
+
                         <div className='rounded-lg bg-[#FFFAFA] h-80 w-[470px] p-6 mx-8 shadow-md'>
                             <div className='flex gap-6'>
                                 <img className='w-24 h-24 rounded-full' src="/home/home-2.jpg" alt="" />
@@ -42,6 +44,21 @@ const Fourth = () => {
                             <div className='mt-4'>
 
                                 <p className=''>Jonathan Robby is a dedicated home cook residing in Germany. Hailing from a multicultural background, Jonathan's culinary journey is influenced by a rich tapestry of flavors and techniques from around the world. Drawing inspiration from his travels and diverse cultural experiences, he brings a unique twist to traditional German cuisine.</p>
+                            </div>
+                        </div>
+
+                        <div className='rounded-lg bg-[#FFFAFA] h-80 w-[470px] p-6 mx-8 shadow-md'>
+                            <div className='flex gap-6'>
+                                <img className='w-24 h-24 rounded-full' src="/home/home-2.jpg" alt="" />
+                                <div className='flex flex-col justify-center' >
+                                    <h2 className='text-xl font-semibold'>David Miller</h2>
+                                    <h2>Residence: America</h2>
+                                    <h2>Age: 31</h2>
+                                </div>
+                            </div>
+                            <div className='mt-4'>
+
+                                <p className=''>David Miller is an enthusiastic home cook hailing from the United States. Cooking is not just a hobby for David; it's a passion that permeates every aspect of his life. Living in America, he draws inspiration from the rich and diverse culinary traditions found throughout the country.</p>
                             </div>
                         </div>
                     </Marquee>
