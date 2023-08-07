@@ -15,7 +15,7 @@ const Hero = (props) => {
                     <h2 className='text-3xl text-slate-600 leading-snug'>Embark on a Culinary Adventure with Inspiring Recipes and Culinary Delights!</h2>
                     <p className='text-slate-600 text-lg'>"Welcome to a culinary haven where flavors collide, techniques inspire, and creativity flourishes. Immerse yourself in a world of exquisite ingredients, expertly crafted recipes, and culinary adventures that will ignite your passion for all things food. Whether you're a seasoned chef or an aspiring home cook, our platform offers a curated collection of culinary inspiration and resources to elevate your kitchen prowess and create unforgettable dining experiences."</p>
 
-                    <Button width='w-44' >Become a chef</Button>
+                    <Button width='w-44' >BECOME A CHEF</Button>
                 </div>
 
 

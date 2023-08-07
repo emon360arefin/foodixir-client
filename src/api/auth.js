@@ -6,7 +6,7 @@ export const saveUser = user => {
         displayName: user.displayName
     }
 
-    fetch(`http://localhost:5000/users/${user?.email}`, {
+    fetch(`https://assignment-10-chef-server.vercel.app/users/${user?.email}`, {
         method: "PUT",
         header: {
             "content-type": 'application/json'

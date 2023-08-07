@@ -7,6 +7,7 @@ import { AiFillEyeInvisible, AiFillEye } from "react-icons/ai";
 import { AuthContext } from '../Authentication/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { useRef } from 'react';
+import { saveUser } from '../../api/auth';
 
 const Login = () => {
 
@@ -35,6 +36,7 @@ const Login = () => {
             .then(result => {
                 event.target.reset()
                 toast.success("Logged In Successfully")
+                saveUser(result.email)
                 navigate(from, { replace: true })
 
             })
@@ -50,6 +52,7 @@ const Login = () => {
         googleSignIn()
             .then(result => {
                 toast.success("Logged In Successfully")
+                saveUser(result.email)
                 navigate(from, { replace: true })
             })
             .catch(error => {
