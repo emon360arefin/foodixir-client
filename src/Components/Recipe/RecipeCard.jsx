@@ -57,13 +57,27 @@ const RecipeCard = (props) => {
 
 
                 console.log("data", data);
-                if (data.success) {
+
+                if (data.modifiedCount > 0) {
                     setFav(true)
                     toast.success("Added to favorite")
-
+                }
+                else if (data.upsertedCount > 0) {
+                    setFav(true)
+                    toast.success("Added to favorite")
                 } else {
                     toast.error("Already Added")
+
                 }
+
+
+                // if (data.success) {
+                //     setFav(true)
+                //     toast.success("Added to favorite")
+
+                // } else {
+                //     toast.error("Already Added")
+                // }
             })
             .catch(error => {
                 console.error('An error occurred:', error);
