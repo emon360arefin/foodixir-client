@@ -59,12 +59,6 @@ const AuthProvider = ({ children }) => {
         }
     }, [])
 
-    console.log("Oka");
-    console.log(user);
-    console.log("Pokkkka");
-
-
-
     const authInfo = {
         user,
         loading,

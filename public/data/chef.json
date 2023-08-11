@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "img_url": "https://i.ibb.co/Fww2vYV/david.jpg",
+        "name": "David Fletcher",
+        "experience": 3,
+        "number_of_recipes": 3,
+        "likes": 15,
+        "shortBio": "Passionate home cook with three years of culinary experience. Enthusiastic about experimenting with new recipes and flavors to create delicious dishes. Inspired by Gordon Ramsay's culinary expertise."
+    },
+    {
+        "id": 2,
+        "img_url": "https://i.ibb.co/SfcmSXK/emily.jpg",
+        "name": "Emily Patel",
+        "experience": 5,
+        "number_of_recipes": 8,
+        "likes": 28,
+        "shortBio": "Self-taught chef with five years of cooking experience. Loves infusing Asian flavors into traditional dishes. Avid traveler seeking culinary inspiration worldwide."
+    },
+    {
+        "id": 3,
+        "img_url": "https://i.ibb.co/Fw4BSrZ/alex.jpg",
+        "name": "Alex Ramirez",
+        "experience": 2,
+        "number_of_recipes": 4,
+        "likes": 10,
+        "shortBio": "Home baker turned pastry enthusiast. Two years of experience creating delectable desserts. Dedicated to perfecting the art of flaky croissants and elegant cakes."
+    },
+    {
+        "id": 4,
+        "img_url": "https://i.ibb.co/Zhw0ZfM/sara.jpg",
+        "name": "Sara Johnson",
+        "experience": 7,
+        "number_of_recipes": 12,
+        "likes": 42,
+        "shortBio": "Culinary school graduate with a focus on farm-to-table cooking. Seven years of experience crafting wholesome and organic meals. Passionate advocate for sustainable eating."
+    },
+    {
+        "id": 5,
+        "img_url": "https://i.ibb.co/T8qQcnc/jordan.jpg",
+        "name": "Jordan Thompson",
+        "experience": 4,
+        "number_of_recipes": 6,
+        "likes": 20,
+        "shortBio": "BBQ aficionado and grill master. Four years of experience smoking and grilling various meats to perfection. Believes that the best meals are cooked outdoors."
+    },
+    {
+        "id": 6,
+        "img_url": "https://i.ibb.co/YNxnY1v/olivia.jpg",
+        "name": "Olivia Lee",
+        "experience": 6,
+        "number_of_recipes": 10,
+        "likes": 35,
+        "shortBio": "Globetrotter and culinary adventurer. Six years of experience exploring international cuisines and bringing exotic flavors to the kitchen. Dedicated to making every meal a passport to a new destination."
+    }
+]

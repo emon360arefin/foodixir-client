@@ -15,6 +15,8 @@ import AuthProvider from './Components/Authentication/AuthProvider';
 import PrivateRoute from './Components/Route/PrivateRoute';
 import { Toaster } from 'react-hot-toast'
 import NotFound from './Components/Shared/NotFound/NotFound';
+import Chefpage from './Components/Chefpage/Chefpage';
+import OurChefs from './Components/Chefpage/OurChefs';
 
 const router = createBrowserRouter([
     {
@@ -40,6 +42,10 @@ const router = createBrowserRouter([
             {
                 path: 'recipe/:id',
                 element: <Recipe></Recipe>
+            },
+            {
+                path: 'ourchef',
+                element: <OurChefs></OurChefs>
             }
         ]
     },

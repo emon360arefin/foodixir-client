@@ -15,6 +15,7 @@ const Header = () => {
 
     let items = [
         { "id": 1, "name": "Home", "path": "/" },
+        { "id": 2, "name": "Our Chefs", "path": "/ourchef" },
         { "id": 2, "name": "Blog", "path": "/blog" }
     ]
 
@@ -90,7 +91,7 @@ const Header = () => {
 
                 {/* Dropdown  */}
 
-                <ul className={`w-full  md:w-10/12 backdrop-blur-sm md:backdrop-blur-0  text-right absolute md:static bg-white  md:bg-transparent  flex md:flex-row flex-col md:items-center justify-start md:justify-center z-60 gap-1 px-4 py-4 transition-all duration-500 ease-out pt-16 md:p-0 shadow md:shadow-none ${open ? ' -top-[240px] ' : 'top-0 '}`}>
+                <ul className={`w-full  md:w-10/12 backdrop-blur-sm md:backdrop-blur-0  text-right absolute md:static bg-white  md:bg-transparent  flex md:flex-row flex-col md:items-center justify-start md:justify-center z-60 gap-1 px-4 py-4 transition-all duration-500 ease-out pt-20 md:p-0 shadow md:shadow-none ${open ? ' -top-[340px] ' : 'top-0 '}`}>
 
 
                     {

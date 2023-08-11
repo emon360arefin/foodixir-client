@@ -6,34 +6,77 @@ import { BsFillBookmarkFill } from "react-icons/bs";
 import { AiOutlineStar, AiFillStar } from "react-icons/ai";
 import Rating from 'react-rating';
 import { Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import checkLocalStorage from '../../Utility/localStorage';
+import { toast } from 'react-hot-toast';
+import { useContext } from 'react';
+import { AuthContext } from '../Authentication/AuthProvider';
+import useScrollToTop from '../../Utility/useScrollToTop';
+import { useEffect } from 'react';
 
 
 const RecipeCard = (props) => {
 
-
+    const { user } = useContext(AuthContext)
+    const email = user?.email
 
     const { id, recipeName, rating, ingredients, cookingMethod } = props.rec;
-    console.log(props.rec);
 
-    const notify = (recipeName, state) => toast(`${recipeName} is ${state} as favorite`);
+    const [fav, setFav] = useState(false)
 
-    const isFav = checkLocalStorage(id)
 
-    const [fav, setFav] = useState(isFav)
+    useEffect(() => {
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/favorite/${email}`)
+            .then(res => res.json())
+            .then(data => {
+                if (data.favoriteIds.includes(id)) {
+                    setFav(true);
+                }
+            })
+            .catch(error => console.log("Error", error.message))
+    }, [email, id])
+
+
+
+    const handleFavorite = (email, id) => {
+
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/favorite/${email}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        })
+            .then(response => response.json())
+            .then(data => {
+
+
+                console.log("data", data);
+                if (data.success) {
+                    setFav(true)
+                    toast.success("Added to favorite")
+
+                } else {
+                    toast.error("Already Added")
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred:', error);
+            });
+    }
 
     const handleFav = () => {
         if (!fav) {
-            notify(recipeName, "added")
+            setFav(true)
+            toast.success("Added to favorite")
         }
         else {
-            notify(recipeName, "already added")
+            toast.arguments("Already Added")
+            StoreData(id)
         }
 
-        setFav(true)
-        StoreData(id)
+
+
     }
 
     return (
@@ -55,7 +98,7 @@ const RecipeCard = (props) => {
                                 className='mt-2'
                             />
                         </div>
-                        <Link onClick={handleFav}><BsFillBookmarkFill className={`text-${!fav ? 'slate-500' : '[#EA1C3B]'} text-2xl`} /></Link>
+                        <Link onClick={() => handleFavorite(email, id)}><BsFillBookmarkFill className={`text-${!fav ? 'slate-500' : '[#EA1C3B]'} text-2xl`} /></Link>
 
                     </div>
 
@@ -63,7 +106,7 @@ const RecipeCard = (props) => {
                 <div className='p-4 flex gap-4 md:flex-row flex-col'>
                     <div className='w-full md:w-1/3 bg-slate-100 rounded-lg p-4'>
                         <h2 className='text-2xl font-semibold mb-3 text-slate-700'> <VscChecklist className='inline mb-1' />  Ingredients:</h2>
-                        {ingredients.map(ingredient => <li className=''>{ingredient}</li>)}
+                        {ingredients.map((ingredient, index) => <li key={index} className=''>{ingredient}</li>)}
                     </div>
                     <div className='bg-slate-100 rounded-lg p-4 w-full md:w-2/3'>
                         <h2 className='text-2xl text-slate-700 font-semibold mb-3'> <GiCampCookingPot className='inline mb-1' /> Cooking Method:</h2>
@@ -73,7 +116,7 @@ const RecipeCard = (props) => {
                 </div>
             </div>
 
-            <ToastContainer position="bottom-center" />
+
         </div>
     );
 };
