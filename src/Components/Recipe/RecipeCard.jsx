@@ -42,6 +42,7 @@ const RecipeCard = (props) => {
 
         if (!email) {
             toast.error("Please login first to add favorite recipe")
+            return
         }
 
         fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/favorite/${email}`, {
