@@ -40,7 +40,7 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: 'recipe/:id',
+                path: 'recipe/:name',
                 element: <Recipe></Recipe>
             },
             {

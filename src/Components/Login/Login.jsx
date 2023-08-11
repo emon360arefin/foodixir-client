@@ -8,6 +8,7 @@ import { AuthContext } from '../Authentication/AuthProvider';
 import { toast } from 'react-hot-toast';
 import { useRef } from 'react';
 import { saveUser } from '../../api/auth';
+import { useEffect } from 'react';
 
 const Login = () => {
 
@@ -80,9 +81,71 @@ const Login = () => {
             })
     }
 
+
+    const countries = [
+        {
+            name: "India", value: "In", cities: [
+                "Delhi",
+                "Mumbai"
+            ]
+        },
+        {
+            name: "Pakistan", value: "Pak", cities: [
+                "Karachi",
+                "Punjub"
+            ]
+        },
+        {
+            name: "Bangladesh", value: "Ban", cities: [
+                "Dhaka",
+                "Chittagong"
+            ]
+        }
+    ]
+
+    const [con, setCon] = useState(null)
+    const [selectedCountry, setSelectedCountry] = useState(null)
+
+
+
+    useEffect(() => {
+        const selectedCountryData = countries.find(country => country.name === con);
+        setSelectedCountry(selectedCountryData);
+        console.log("SelectedCountry", selectedCountry);
+    }, [con])
+
     return (
         <div className='bg-[#FFFAFA] py-12 md:py-20'>
             <div className='px-2 max-w-7xl mx-auto'>
+
+
+                {/* Code Practice  */}
+
+
+                {/* <div>
+                    <select onChange={(e) => setCon(e.target.value)} name="country" id="">
+                        {
+                            countries.map((country, index) => (
+                                <option value={country.name}>{country.name}</option>
+                            ))
+                        }
+                    </select>
+
+
+                    {
+                        selectedCountry && <select name="" id="">
+                            {
+                                selectedCountry.cities.map((city, index) => (
+                                    <option value={city}>{city}</option>
+                                ))
+                            }
+
+                        </select>
+                    }
+
+                </div> */}
+
+
                 <div className=" flex flex-col md:flex-row justify-center gap-4 md:gap-28 ">
 
                     <div className='w-full md:w-5/12'>

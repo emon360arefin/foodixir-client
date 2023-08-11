@@ -5,25 +5,28 @@ import RecipeCard from './RecipeCard';
 import Loader from '../Shared/Loader';
 
 const Recipe = () => {
-    const { id } = useParams();
+    const { name } = useParams();
 
-    const [chefs, setChefs] = useState([]);
+    const [chef, setChef] = useState([]);
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/chef')
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/chef/${name}`)
             .then(res => res.json())
-            .then(data => setChefs(data))
-    }, [])
+            .then(data => setChef(data))
+    }, [name])
+
+
 
     useEffect(() => {
-        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/recipe')
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/recipe/${name}`)
             .then(res => res.json())
             .then(data => setRecipes(data))
-    }, []);
+    }, [name]);
 
-    const chef = chefs.find(chef => chef.id === parseInt(id));
-    const recipe = recipes.filter(recipe => parseInt(recipe.categoryId) === parseInt(id));
+
+    console.log("Recipes", recipes);
+
 
 
     return (
@@ -41,7 +44,7 @@ const Recipe = () => {
                 </div>
                 <div className=''>
                     {
-                        recipe ? recipe.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>) : <Loader></Loader>
+                        recipes ? recipes.map(rec => <RecipeCard key={rec.id} rec={rec}></RecipeCard>) : <Loader></Loader>
                     }
                 </div>
             </div>
