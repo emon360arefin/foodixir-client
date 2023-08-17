@@ -1,0 +1,244 @@
+[
+    {
+        "id": 9,
+        "recipeName": "Chicken Stir-Fry",
+        "ingredients": [
+            "chicken breast",
+            "vegetables",
+            "soy sauce",
+            "sesame oil"
+        ],
+        "cookingMethod": "1. Slice chicken. 2. Stir-fry vegetables. 3. Add chicken and sauce. 4. Cook until chicken is done. 5. Serve over rice.",
+        "rating": 4.6,
+        "homecook": "Olivia Lee"
+    },
+    {
+        "id": 10,
+        "recipeName": "Pasta Carbonara",
+        "ingredients": [
+            "spaghetti",
+            "bacon",
+            "eggs",
+            "parmesan cheese"
+        ],
+        "cookingMethod": "1. Cook pasta. 2. Cook bacon. 3. Beat eggs and cheese. 4. Mix pasta with egg mixture. 5. Add bacon. 6. Serve.",
+        "rating": 4.8,
+        "homecook": "Olivia Lee"
+    },
+    {
+        "id": 11,
+        "recipeName": "Vegetable Curry",
+        "ingredients": [
+            "assorted vegetables",
+            "coconut milk",
+            "curry paste",
+            "rice"
+        ],
+        "cookingMethod": "1. Chop vegetables. 2. Simmer in coconut milk. 3. Add curry paste. 4. Serve over rice.",
+        "rating": 4.2,
+        "homecook": "Olivia Lee"
+    },
+    {
+        "id": 20,
+        "recipeName": "Classic Chocolate Chip Cookies",
+        "ingredients": [
+            "butter",
+            "sugar",
+            "brown sugar",
+            "eggs",
+            "flour",
+            "chocolate chips"
+        ],
+        "cookingMethod": "1. Cream butter and sugars. 2. Beat in eggs. 3. Mix in flour and chips. 4. Drop spoonfuls on baking sheet. 5. Bake until golden. 6. Enjoy the gooey goodness!",
+        "rating": 4.9,
+        "homecook": "David Fletcher"
+    },
+    {
+        "id": 21,
+        "recipeName": "Creamy Tomato Basil Soup",
+        "ingredients": [
+            "tomatoes",
+            "onion",
+            "garlic",
+            "cream",
+            "basil"
+        ],
+        "cookingMethod": "1. Sauté onion and garlic. 2. Add tomatoes. 3. Blend mixture. 4. Stir in cream and basil. 5. Simmer. 6. Warm your soul with each spoonful.",
+        "rating": 4.8,
+        "homecook": "David Fletcher"
+    },
+    {
+        "id": 22,
+        "recipeName": "Grilled Steak with Chimichurri",
+        "ingredients": [
+            "steak",
+            "olive oil",
+            "garlic",
+            "parsley",
+            "red wine vinegar"
+        ],
+        "cookingMethod": "1. Marinate steak in olive oil and garlic. 2. Grill to desired doneness. 3. Blend parsley, garlic, vinegar. 4. Drizzle over steak. 5. Savor the bold flavors.",
+        "rating": 4.7,
+        "homecook": "David Fletcher"
+    },
+    {
+        "id": 23,
+        "recipeName": "Lemon Blueberry Pancakes",
+        "ingredients": [
+            "flour",
+            "sugar",
+            "baking powder",
+            "lemon zest",
+            "blueberries"
+        ],
+        "cookingMethod": "1. Mix dry ingredients. 2. Add wet ingredients. 3. Fold in blueberries. 4. Cook on griddle. 5. Stack 'em up and add a drizzle of maple syrup.",
+        "rating": 4.6,
+        "homecook": "Sara Johnson"
+    },
+    {
+        "id": 24,
+        "recipeName": "Quinoa Salad",
+        "ingredients": [
+            "quinoa",
+            "cucumber",
+            "red bell pepper",
+            "feta cheese",
+            "olives"
+        ],
+        "cookingMethod": "1. Cook quinoa. 2. Chop veggies. 3. Mix with quinoa. 4. Crumble feta and add olives. 5. Drizzle dressing. 6. Satisfy your taste buds and nourish your body.",
+        "rating": 4.5,
+        "homecook": "Sara Johnson"
+    },
+    {
+        "id": 25,
+        "recipeName": "Garlic Shrimp Pasta",
+        "ingredients": [
+            "shrimp",
+            "linguine",
+            "garlic",
+            "butter",
+            "parsley"
+        ],
+        "cookingMethod": "1. Sauté garlic in butter. 2. Add shrimp and cook. 3. Cook pasta. 4. Toss everything together. 5. Garnish with parsley. 6. Dive into a plate of heavenly flavors.",
+        "rating": 4.7,
+        "homecook": "Sara Johnson"
+    },
+    {
+        "id": 26,
+        "recipeName": "Mango Smoothie",
+        "ingredients": [
+            "mango",
+            "banana",
+            "yogurt",
+            "honey"
+        ],
+        "cookingMethod": "1. Blend mango and banana. 2. Add yogurt and honey. 3. Blend until smooth. 4. Pour into a glass. 5. Sip and feel refreshed.",
+        "rating": 4.9,
+        "homecook": "Emily Patel"
+    },
+    {
+        "id": 27,
+        "recipeName": "Stuffed Bell Peppers",
+        "ingredients": [
+            "bell peppers",
+            "ground beef",
+            "rice",
+            "tomato sauce",
+            "cheese"
+        ],
+        "cookingMethod": "1. Cook beef and rice. 2. Mix with sauce. 3. Cut and stuff peppers. 4. Top with cheese. 5. Bake until peppers are tender. 6. Delight in each cheesy bite.",
+        "rating": 4.6,
+        "homecook": "Emily Patel"
+    },
+    {
+        "id": 28,
+        "recipeName": "Banana Bread",
+        "ingredients": [
+            "ripe bananas",
+            "flour",
+            "sugar",
+            "eggs",
+            "butter"
+        ],
+        "cookingMethod": "1. Mash bananas. 2. Mix in sugar, eggs, and butter. 3. Add flour. 4. Bake until golden. 5. Slice and savor the moist goodness.",
+        "rating": 4.8,
+        "homecook": "Emily Patel"
+    },
+    {
+        "id": 29,
+        "recipeName": "Avocado Toast",
+        "ingredients": [
+            "avocado",
+            "bread",
+            "lemon juice",
+            "salt",
+            "pepper"
+        ],
+        "cookingMethod": "1. Mash avocado. 2. Spread on toasted bread. 3. Drizzle lemon juice. 4. Sprinkle salt and pepper. 5. Elevate your breakfast or snack game.",
+        "rating": 4.5,
+        "homecook": "Alex Ramirez"
+    },
+    {
+        "id": 30,
+        "recipeName": "Veggie Wrap",
+        "ingredients": [
+            "tortilla",
+            "hummus",
+            "assorted vegetables"
+        ],
+        "cookingMethod": "1. Spread hummus on tortilla. 2. Load with veggies. 3. Roll tightly. 4. Slice and enjoy a quick, nutritious meal on the go.",
+        "rating": 4.3,
+        "homecook": "Alex Ramirez"
+    },
+    {
+        "id": 31,
+        "recipeName": "Berry Parfait",
+        "ingredients": [
+            "mixed berries",
+            "yogurt",
+            "granola"
+        ],
+        "cookingMethod": "1. Layer berries, yogurt, and granola in a glass. 2. Repeat. 3. Top with a final sprinkle of granola. 4. Indulge in a delightful and healthy treat.",
+        "rating": 4.7,
+        "homecook": "Alex Ramirez"
+    },
+    {
+        "id": 32,
+        "recipeName": "Egg Fried Rice",
+        "ingredients": [
+            "cooked rice",
+            "eggs",
+            "vegetables",
+            "soy sauce"
+        ],
+        "cookingMethod": "1. Scramble eggs. 2. Stir-fry veggies. 3. Add rice and eggs. 4. Drizzle with soy sauce. 5. Satisfy your craving for a quick and flavorful meal.",
+        "rating": 4.6,
+        "homecook": "Jordan Thompson"
+    },
+    {
+        "id": 33,
+        "recipeName": "Mediterranean Salad",
+        "ingredients": [
+            "cucumber",
+            "tomatoes",
+            "red onion",
+            "feta cheese",
+            "olives"
+        ],
+        "cookingMethod": "1. Chop veggies. 2. Toss in a bowl. 3. Crumble feta. 4. Drizzle olive oil. 5. Revel in the fresh and tangy flavors.",
+        "rating": 4.5,
+        "homecook": "Jordan Thompson"
+    },
+    {
+        "id": 34,
+        "recipeName": "Teriyaki Chicken",
+        "ingredients": [
+            "chicken thighs",
+            "teriyaki sauce",
+            "sesame seeds"
+        ],
+        "cookingMethod": "1. Marinate chicken in teriyaki sauce. 2. Grill until cooked. 3. Sprinkle sesame seeds. 4. Dive into a delicious balance of sweet and savory.",
+        "rating": 4.7,
+        "homecook": "Jordan Thompson"
+    }
+]

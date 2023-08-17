@@ -9,14 +9,14 @@ const HomeCook = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
-        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/homecook')
+        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/api/homecooks')
             .then(res => res.json())
             .then(data => setChefs(data))
     }, [])
 
 
     return (
-        <div className='py-12 md:py-16 '>
+        <div className='py-12 md:py-16 bg-[#FFFAFA]'>
             <div className='max-w-7xl mx-auto px-2'>
                 <h2 className='text-4xl text-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Self Taught Home Cook</h2>
 
@@ -24,7 +24,7 @@ const HomeCook = () => {
 
                 <div className='grid md:grid-cols-2 grid-cols-1 gap-10 mt-10'>
                     {
-                        chefs ? chefs.map((chef, index) => <HomeCookCard key={index} chef={chef}></HomeCookCard>) : <Loader></Loader>
+                        chefs ? chefs.map((chef, index) => <HomeCookCard bg='white' key={index} chef={chef}></HomeCookCard>) : <Loader></Loader>
                     }
                 </div>
 

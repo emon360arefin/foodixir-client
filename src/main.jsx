@@ -17,6 +17,7 @@ import { Toaster } from 'react-hot-toast'
 import NotFound from './Components/Shared/NotFound/NotFound';
 import Chefpage from './Components/Chefpage/Chefpage';
 import OurChefs from './Components/Chefpage/OurChefs';
+import Homecookrecipe from './Components/Chefpage/Homecookrecipe';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
             {
                 path: 'recipe/:name',
                 element: <Recipe></Recipe>
+            },
+            {
+                path: 'homecookrecipe/:name',
+                element: <Homecookrecipe></Homecookrecipe>
             },
             {
                 path: 'ourchef',

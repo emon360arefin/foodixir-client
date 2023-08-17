@@ -8,7 +8,7 @@ const Chefpage = () => {
     const [chefs, setChefs] = useState([])
 
     useEffect(() => {
-        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/chef')
+        fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/api/chefs')
             .then(res => res.json())
             .then(data => setChefs(data))
     }, [])

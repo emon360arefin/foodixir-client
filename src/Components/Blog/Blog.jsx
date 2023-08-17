@@ -1,13 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 const Blog = () => {
+
+    const [blog, setBlog] = useState(null);
+
+    useEffect(() => {
+        fetch('http://localhost:4000/api/blogs/')
+            .then(res => res.json())
+            .then(data => {
+                setBlog(data[0])
+            })
+    }, [])
+
+
+    const paragraphs = blog && blog.content.split('\n\n');
+
+    // Render each paragraph within <p> tags
+    const renderedParagraphs = paragraphs?.map((paragraph, index) => (
+        <p key={index}>{paragraph}</p>
+    ));
+
+    console.log(blog);
+
+
     return (
-        <div className='bg-[#FFFAFA]'>
-            <div className='max-w-7xl mx-auto px-2 py-16 '>
+        <div className='bg-[#FFFAFA] relative'>
+            <div className='max-w-7xl mx-auto px-2 py-16 z-[5]'>
                 {/* Question 1 */}
                 <div className="item-box bg-slate-100 p-0 rounded-lg mt-2">
                     <h1 className="text-2xl  font-semibold p-4 bg-[#E2E8F0] text-slate-700 rounded-t-lg">1. Tell us the differences between uncontrolled and controlled components.
                     </h1>
+
+                    {/* <div>{renderedParagraphs}</div> */}
+
+
                     <div className="px-4 py-4">
                         <p className="pb-4 text-lg text-slate-600">In React, a controlled component is a component where its state is controlled by React and all changes to the state are propagated through props. On the other hand, an uncontrolled component is a component where the state is maintained by the component itself and changes to the state are not controlled by React.
 
@@ -50,6 +76,8 @@ const Blog = () => {
                     </div>
                 </div>
             </div>
+
+            <div className="absolute top-0 lg:w-44 w-20 h-[60vh] lg:rotate-45 left-[50%] z-[1]  blur-[200px]"></div>
         </div>
     );
 };

@@ -7,7 +7,7 @@ const ChefCard = (props) => {
     const { id, img_url, name, experience, number_of_recipes, likes } = props.chef
 
     return (
-        <div className='border rounded-xl border-slate-200 bg-[#FFFAFA] overflow-hidden'>
+        <div className='border rounded-xl hover:shadow-md transition-all duration-300 ease-in-out border-slate-200 bg-[#FFFAFA] overflow-hidden'>
             <div className='flex md:flex-row flex-col gap-2 md:gap-6 '>
                 <img className='md:w-64 md:h-64 ' src={img_url} alt="" />
                 <div className='p-4 md:p-0 md:pt-4 flex-col items-start justify-between'>

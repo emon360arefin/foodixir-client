@@ -6,8 +6,11 @@ const HomeCookCard = (props) => {
 
     const { id, img_url, name, experience, number_of_recipes, likes } = props.chef
 
+    const bg = props.bg
+
+
     return (
-        <div className='border rounded-xl border-slate-200 bg-[#FFFAFA] overflow-hidden'>
+        <div className={`border rounded-xl border-slate-200  hover:shadow-md transition-all duration-300 ease-in-out overflow-hidden ${bg ? `bg-${bg}` : 'bg-[#FFFAFA]'}`}>
             <div className='flex md:flex-row flex-col gap-2 md:gap-6 '>
                 <img className='md:w-64 md:h-64 ' src={img_url} alt="" />
                 <div className='p-4 md:p-0 md:pt-4 flex-col items-start justify-between'>
@@ -18,7 +21,7 @@ const HomeCookCard = (props) => {
 
                         <h2 className='text-xl font-semibold text-slate-600'> <HandThumbUpIcon className='h-6 w-6 inline mb-1' /> Likes: {likes} </h2>
 
-                        <Link to={`/recipe/${id}`}>
+                        <Link to={`/homecookrecipe/${name}`}>
                             <button className='py-2 md:px-8 px-4 mt-4 w-full  border bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-white rounded'>
                                 View Recipes
                             </button>
