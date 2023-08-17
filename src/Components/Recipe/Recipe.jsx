@@ -11,7 +11,7 @@ const Recipe = () => {
     const [recipes, setRecipes] = useState([]);
 
     useEffect(() => {
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/chef/${name}`)
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/chefs/${name}`)
             .then(res => res.json())
             .then(data => setChef(data))
     }, [name])
@@ -19,7 +19,7 @@ const Recipe = () => {
 
 
     useEffect(() => {
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/recipe/${name}`)
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/recipes/${name}`)
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [name]);

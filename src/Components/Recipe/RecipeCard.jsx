@@ -26,7 +26,7 @@ const RecipeCard = (props) => {
 
 
     useEffect(() => {
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/favorite/${email}`)
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`)
             .then(res => res.json())
             .then(data => {
                 if (data.favoriteIds.includes(id)) {
@@ -45,7 +45,7 @@ const RecipeCard = (props) => {
             return
         }
 
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/favorite/${email}`, {
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

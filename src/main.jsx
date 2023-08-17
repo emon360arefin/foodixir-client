@@ -41,11 +41,11 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: 'recipe/:name',
+                path: 'recipes/:name',
                 element: <Recipe></Recipe>
             },
             {
-                path: 'homecookrecipe/:name',
+                path: 'homecookrecipes/:name',
                 element: <Homecookrecipe></Homecookrecipe>
             },
             {

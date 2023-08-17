@@ -19,7 +19,7 @@ const Homecookrecipe = () => {
 
 
     useEffect(() => {
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/homecookrecipe/${name}`)
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/homecookrecipes/${name}`)
             .then(res => res.json())
             .then(data => setRecipes(data))
     }, [name]);
