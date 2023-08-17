@@ -45,43 +45,103 @@ const RecipeCard = (props) => {
             return
         }
 
-        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`, {
-            method: 'PUT',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ id: id })
-        })
-            .then(response => response.json())
+        fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`)
+            .then(res => res.json())
             .then(data => {
+                if (!data) {
+                    fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`, {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({ id: id })
+                    })
+                        .then(response => response.json())
+                        .then(data => {
 
 
-                console.log("data", data);
+                            console.log("data", data);
 
-                if (data.modifiedCount > 0) {
-                    setFav(true)
-                    toast.success("Added to favorite")
+                            if (data.modifiedCount > 0) {
+                                setFav(true)
+                                toast.success("Added to favorite")
+                            }
+                            else if (data.upsertedCount > 0) {
+                                setFav(true)
+                                toast.success("Added to favorite")
+                            } else {
+                                toast.error("Already Added")
+
+                            }
+
+
+                            // if (data.success) {
+                            //     setFav(true)
+                            //     toast.success("Added to favorite")
+
+                            // } else {
+                            //     toast.error("Already Added")
+                            // }
+                        })
+                        .catch(error => {
+                            console.error('An error occurred:', error);
+                        });
                 }
-                else if (data.upsertedCount > 0) {
-                    setFav(true)
-                    toast.success("Added to favorite")
-                } else {
-                    toast.error("Already Added")
 
+                else {
+                    fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`)
+                        .then(res => res.json())
+                        .then(data => {
+                            if (data.favoriteIds.includes(id)) {
+                                toast.error("Already Added")
+                            } else {
+                                fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/favorites/${email}`, {
+                                    method: 'PUT',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ id: id })
+                                })
+                                    .then(response => response.json())
+                                    .then(data => {
+
+
+                                        console.log("data", data);
+
+                                        if (data.modifiedCount > 0) {
+                                            setFav(true)
+                                            toast.success("Added to favorite")
+                                        }
+                                        else if (data.upsertedCount > 0) {
+                                            setFav(true)
+                                            toast.success("Added to favorite")
+                                        } else {
+                                            toast.error("Already Added")
+
+                                        }
+
+
+                                        // if (data.success) {
+                                        //     setFav(true)
+                                        //     toast.success("Added to favorite")
+
+                                        // } else {
+                                        //     toast.error("Already Added")
+                                        // }
+                                    })
+                                    .catch(error => {
+                                        console.error('An error occurred:', error);
+                                    });
+
+                            }
+                        })
                 }
-
-
-                // if (data.success) {
-                //     setFav(true)
-                //     toast.success("Added to favorite")
-
-                // } else {
-                //     toast.error("Already Added")
-                // }
             })
-            .catch(error => {
-                console.error('An error occurred:', error);
-            });
+
+
+
+
+
     }
 
     const handleFav = () => {
