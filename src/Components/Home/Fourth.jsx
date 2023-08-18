@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 
 const Fourth = () => {
     return (
-        <div className='py-12 md:py-16 bg-white'>
+        <div className='py-12 md:py-16 bg-[#FFFAFA]'>
             <div className='max-w-7xl mx-auto px-2'>
                 <h2 className='text-4xl text-center md:text-4xl font-bold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Meet The Community</h2>
 
@@ -13,7 +13,7 @@ const Fourth = () => {
 
                 <div>
                     <Marquee className='flex gap-10 p-2' loop={0} pauseOnHover={true}>
-                        
+
 
 
                         <div className='rounded-lg bg-[#FFFAFA] h-80 w-[470px] p-6 mx-8 shadow-md'>

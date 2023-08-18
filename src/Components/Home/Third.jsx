@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Third = () => {
     return (
-        <div className='py-12 md:py-16 bg-[#FFFAFA]'>
+        <div className='py-12 md:py-16 bg-white'>
             <div className='max-w-7xl mx-auto px-2'>
                 <h2 className='text-4xl text-center md:text-4xl font-bold leading-snug text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555]'>Learn From The Best</h2>
 
