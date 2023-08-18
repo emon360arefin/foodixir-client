@@ -10,7 +10,7 @@ const RecipePage = (props) => {
                 <div className=' grid md:grid-cols-12 rounded-xl overflow-hidden grid-cols-1 gap-8 border border-slate-200 bg-[#FFFAFA] pb-4 md:pb-0'>
                     <div className="md:col-span-3 col-span-12 relative">
                         <img className='' src={img_url} alt="" />
-                        
+
                     </div>
                     <div className='md:col-span-9 col-span-12 pl-8 flex flex-col justify-center md:pr-12 pr-4'>
                         <h2 className='text-transparent bg-clip-text bg-gradient-to-r from-[#EA1E34] to-[#EB1555] text-4xl font-semibold'>{name}</h2>

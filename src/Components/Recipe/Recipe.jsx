@@ -17,7 +17,6 @@ const Recipe = () => {
     }, [name])
 
 
-
     useEffect(() => {
         fetch(`https://assignment-10-chef-server-emon360arefin.vercel.app/api/recipes/${name}`)
             .then(res => res.json())

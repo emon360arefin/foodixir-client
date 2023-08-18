@@ -3,6 +3,10 @@ import Hero from './Hero';
 import ChefCard from './Second';
 import Third from './Third';
 import Fourth from './Fourth';
+import HomeBlog from './Blog/HomeBlog';
+import TabsSection from './Blog/TabsSection';
+
+
 
 const Home = () => {
 
@@ -12,6 +16,7 @@ const Home = () => {
         <div>
             <Hero color={color}></Hero>
             <ChefCard> </ChefCard>
+            <HomeBlog></HomeBlog>
             <Third></Third>
             <Fourth></Fourth>
         </div>

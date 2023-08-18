@@ -18,6 +18,7 @@ import NotFound from './Components/Shared/NotFound/NotFound';
 import Chefpage from './Components/Chefpage/Chefpage';
 import OurChefs from './Components/Chefpage/OurChefs';
 import Homecookrecipe from './Components/Chefpage/Homecookrecipe';
+import Blogpost from './Components/Blog/Blogpost';
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
             {
                 path: 'blog',
                 element: <Blog></Blog>
+            },
+            {
+                path: '/blogpost/:id',
+                element: <Blogpost></Blogpost>
             },
             {
                 path: 'login',
@@ -52,6 +57,7 @@ const router = createBrowserRouter([
                 path: 'ourchef',
                 element: <OurChefs></OurChefs>
             }
+
         ]
     },
     {

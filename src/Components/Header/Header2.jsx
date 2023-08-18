@@ -95,7 +95,14 @@ const Header = () => {
 
 
                     {
-                        items.map(item => <NavLink onClick={() => setOpen(true)} className={({ isActive }) => isActive ? activeClass : inactiveClass} key={item.id} to={item.path}> {item.name}</NavLink>)
+                        items.map(item => <NavLink
+                            onClick={() => setOpen(true)}
+                            className={({ isActive }) => isActive ? activeClass : inactiveClass}
+                            key={item.id}
+                            to={item.path}
+                        >
+                            {item.name}
+                        </NavLink>)
                     }
 
                     <div className='block md:hidden mt-1'>
