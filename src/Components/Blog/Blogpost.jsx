@@ -110,7 +110,7 @@ const Blogpost = () => {
                             <div className='sticky top-24'>
                                 <h2 className='text-xl font-semibold mb-4'>Comments</h2>
 
-                                <div className='h-[90vh] overflow-auto pr-2'>
+                                <div className='h-[50vh] overflow-auto pr-2'>
                                     {
                                         singleblog?.comments.map(comment =>
                                             <div className='flex gap-2 mb-4'>
