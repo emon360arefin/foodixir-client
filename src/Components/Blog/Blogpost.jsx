@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import moment from 'moment/moment';
 import Button from '../Shared/Button/Button';
 import { AuthContext } from '../Authentication/AuthProvider';
@@ -131,7 +131,8 @@ const Blogpost = () => {
 
                                         <div className='w-8 h-8'>
                                             {
-                                                !user ? <BiSolidUserCircle className='text-4xl'></BiSolidUserCircle> :
+                                                !user ? <Link to='/login'>
+                                                    <BiSolidUserCircle className='text-4xl'></BiSolidUserCircle></Link> :
 
                                                     <img className=' rounded-full border' src={user?.photoURL} alt="" />
                                             }

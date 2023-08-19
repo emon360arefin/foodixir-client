@@ -125,7 +125,8 @@ const BlogCard = (props) => {
 
                                 <div className='w-8 h-8'>
                                     {
-                                        !user ? <BiSolidUserCircle className='text-4xl'></BiSolidUserCircle> :
+                                        !user ? <Link to='/login'>
+                                            <BiSolidUserCircle className='text-4xl'></BiSolidUserCircle></Link> :
 
                                             <img className=' rounded-full border' src={user?.photoURL} alt="" />
                                     }
