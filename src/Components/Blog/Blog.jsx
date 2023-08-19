@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import HomeBlog from '../Home/Blog/HomeBlog';
 import Heading from '../Shared/Heading/Heading';
 import BlogCard from '../Home/Blog/BlogCard';
+import Loader from '../Shared/Loader';
 
 const Blog = () => {
     const [blogs, setBlogs] = useState(null)
@@ -17,7 +18,7 @@ const Blog = () => {
             })
     }, [])
 
-    const allTags = blogs && tags.concat(...blogs.map(blog => blog.tags));
+    const allTags = blogs && tags.concat(...blogs.map(blog => blog.category));
 
     allTags && allTags.map(tag => {
         if (!newtag.includes(tag)) {
@@ -26,7 +27,7 @@ const Blog = () => {
     })
 
 
-    let filteredBlog = blogs && blogs.filter(blog => blog.tags.includes(selectedTag))
+    let filteredBlog = blogs && blogs.filter(blog => blog.category.includes(selectedTag))
 
     if (selectedTag === "All") {
         filteredBlog = blogs;
@@ -39,42 +40,48 @@ const Blog = () => {
 
     return (
         <div className='bg-[#FFFAFA] py-16 md:py-20'>
-            <div className='max-w-7xl mx-auto px-2'>
-                <Heading
-                    heading="Discover the Culinary Chronicles"
-                    subheading="Embark on an Epic Gastronomic Journey: A Collection of Captivating Blogs on Food, Flavors, and Culinary Adventures"
-                ></Heading>
+            {
+                blogs ?
+                    <div className='max-w-7xl mx-auto px-2'>
+                        <Heading
+                            heading="Discover the Culinary Chronicles"
+                            subheading="Embark on an Epic Gastronomic Journey: A Collection of Captivating Blogs on Food, Flavors, and Culinary Adventures"
+                        ></Heading>
 
 
-                {/* Card Container */}
+                        {/* Card Container */}
 
 
-                <div className='grid grid-cols-1 md:grid-cols-4  md:gap-8'>
+                        <div className='grid grid-cols-1 md:grid-cols-4  md:gap-8'>
 
-                    <div className='col-span-1 w-full h-auto md:h-[60vh] overflow-auto bg-slate-100 p-4 rounded-md flex flex-wrap'>
-                        <h2 className='mb-4 text-lg w-full font-semibold'>Filter By Tag</h2>
-                        <h2
-                            onClick={() => setSelectedTag("All")}
-                            className={`inline px-4 py-1 md:py-0 md:w-full h-10 md:flex items-center md:pl-8 rounded mr-2 md:mt-0 mt-2 cursor-pointer hover:shadow-md  transition-all duration-200 ease-in-out select-none ${selectedTag === "All" ? 'bg-[#EA1D35] text-white shadow-md' : 'bg-white hover:bg-red-100'} `}
-                        >All</h2>
-                        {
-                            newtag && newtag.map(tag => <h2
-                                onClick={() => setSelectedTag(tag)}
-                                className={`md:w-full h-10 inline px-4 py-1 md:flex items-center md:pl-8 rounded mr-2 mt-2 cursor-pointer hover:shadow-md  transition-all duration-200 ease-in-out select-none  ${tag === selectedTag ? 'bg-[#EA1D35] text-white shadow-md' : 'bg-white hover:bg-red-100'} `}
-                            >{tag}</h2>)
-                        }
-                    </div>
+                            <div className='col-span-1 w-full h-min   bg-slate-100 p-4 rounded-md flex md:flex-col flex-wrap sticky top-16 md:top-24 z-10'>
+                                <h2 className='mb-4 text-lg w-full font-semibold'>Filter By Tag</h2>
+                                <h2
+                                    onClick={() => setSelectedTag("All")}
+                                    className={`inline px-4 py-1 md:py-0 md:w-full h-10 md:flex items-center md:pl-8 rounded mr-2 md:mt-0 mt-2 cursor-pointer hover:shadow-md  transition-all duration-200 ease-in-out select-none ${selectedTag === "All" ? 'bg-[#EA1D35] text-white shadow-md' : 'bg-white hover:bg-red-100'} `}
+                                >All</h2>
+                                {
+                                    newtag && newtag.map(tag => <h2
+                                        onClick={() => setSelectedTag(tag)}
+                                        className={`md:w-full h-10 inline px-4 py-1 md:flex items-center md:pl-8 rounded mr-2 mt-2 cursor-pointer hover:shadow-md  transition-all duration-200 ease-in-out select-none  ${tag === selectedTag ? 'bg-[#EA1D35] text-white shadow-md' : 'bg-white hover:bg-red-100'} `}
+                                    >{tag}</h2>)
+                                }
 
-
-                    <div className='col-span-3 w-full md:pr-4 mt-6 md:mt-0'>
-                        {
-                            filteredBlog && filteredBlog.map(blog => <BlogCard key={blog.id} blog={blog}></BlogCard>)
-                        }
-                    </div>
-                </div>
+                            </div>
 
 
-            </div>
+                            <div className='col-span-3 w-full md:pr-4 mt-6 md:mt-0'>
+
+                                <p className=' mb-2'>Total Results: {filteredBlog?.length}</p>
+                                {
+                                    filteredBlog && filteredBlog.map(blog => <BlogCard key={blog.id} blog={blog} setBlogs={setBlogs}></BlogCard>)
+                                }
+                            </div>
+                        </div>
+
+
+                    </div> : <Loader></Loader>
+            }
         </div>
     );
 };
