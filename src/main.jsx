@@ -16,9 +16,9 @@ import PrivateRoute from './Components/Route/PrivateRoute';
 import { Toaster } from 'react-hot-toast'
 import NotFound from './Components/Shared/NotFound/NotFound';
 import Chefpage from './Components/Chefpage/Chefpage';
-import OurChefs from './Components/Chefpage/OurChefs';
-import Homecookrecipe from './Components/Chefpage/Homecookrecipe';
 import Blogpost from './Components/Blog/Blogpost';
+import Homecookrecipe from './Components/Homecook/Homecookrecipe';
+import HomeCook from './Components/Homecook/Homecook';
 
 const router = createBrowserRouter([
     {
@@ -55,7 +55,11 @@ const router = createBrowserRouter([
             },
             {
                 path: 'ourchef',
-                element: <OurChefs></OurChefs>
+                element: <Chefpage></Chefpage>
+            },
+            {
+                path: '/homecook',
+                element: <HomeCook></HomeCook>
             }
 
         ]

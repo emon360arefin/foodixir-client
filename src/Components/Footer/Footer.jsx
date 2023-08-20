@@ -8,8 +8,9 @@ const Footer = () => {
 
     let items = [
         { "id": 1, "name": "Home", "path": "/" },
-        { "id": 2, "name": "Blog", "path": "/blog" },
-        { "id": 3, "name": "All Toys", "path": "/all" }
+        { "id": 2, "name": "Our Chefs", "path": "/ourchef" },
+        { "id": 3, "name": "Blog", "path": "/blog" },
+        { "id": 4, "name": "Our Homecook", "path": "/homecook" },
     ]
 
     const additional = [

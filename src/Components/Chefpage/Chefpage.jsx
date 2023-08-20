@@ -6,7 +6,7 @@ import Loader from '../Shared/Loader';
 
 const Chefpage = () => {
 
-    const [chefs, setChefs] = useState([])
+    const [chefs, setChefs] = useState(null)
 
     useEffect(() => {
         fetch('https://assignment-10-chef-server-emon360arefin.vercel.app/api/chefs')
@@ -16,7 +16,7 @@ const Chefpage = () => {
 
 
     return (
-        <div className='py-12 md:py-16 '>
+        <div className='py-12 md:py-16 bg-white'>
             {
                 chefs ?
                     <div className='max-w-7xl mx-auto px-2'>

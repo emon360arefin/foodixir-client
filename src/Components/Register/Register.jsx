@@ -167,7 +167,7 @@ const Register = () => {
                                     type="text"
                                     name='name'
                                     placeholder="Enter your name"
-                                    className="border px-4 py-2 rounded focus:outline-none"
+                                    className="border px-4 py-2 rounded focus:outline-none bg-blue-white"
                                     required />
                             </div>
 
@@ -206,7 +206,7 @@ const Register = () => {
                                     type="email"
                                     name='email'
                                     placeholder="Enter your email"
-                                    className="border px-4 py-2 rounded focus:outline-none"
+                                    className="border px-4 py-2 rounded focus:outline-none bg-blue-white"
                                     required />
                             </div>
 
@@ -220,7 +220,7 @@ const Register = () => {
                                         type={hidden ? 'password' : 'text'}
                                         name='password'
                                         placeholder="Enter password"
-                                        className=" px-4 py-2 rounded w-full focus:outline-none"
+                                        className=" px-4 py-2 rounded w-full focus:outline-none bg-blue-white"
                                         required />
 
                                     <div onClick={() => setHidden(!hidden)}>

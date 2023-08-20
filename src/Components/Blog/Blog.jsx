@@ -55,7 +55,7 @@ const Blog = () => {
                         <div className='grid grid-cols-1 md:grid-cols-4  md:gap-8'>
 
                             <div className='col-span-1 w-full h-min   bg-slate-100 p-4 rounded-md flex md:flex-col flex-wrap sticky top-16 md:top-24 z-10'>
-                                <h2 className='mb-4 text-lg w-full font-semibold'>Filter By Tag</h2>
+                                <h2 className='mb-4 text-lg w-full font-semibold'>Filter By Category</h2>
                                 <h2
                                     onClick={() => setSelectedTag("All")}
                                     className={`inline px-4 py-1 md:py-0 md:w-full h-10 md:flex items-center md:pl-8 rounded mr-2 md:mt-0 mt-2 cursor-pointer hover:shadow-md  transition-all duration-200 ease-in-out select-none ${selectedTag === "All" ? 'bg-[#EA1D35] text-white shadow-md' : 'bg-white hover:bg-red-100'} `}
